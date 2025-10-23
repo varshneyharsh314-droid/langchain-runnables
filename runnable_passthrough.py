@@ -6,6 +6,9 @@ from langchain.schema.runnable import RunnableSequence, RunnableParallel, Runnab
 
 load_dotenv()
 
+# passthrough = RunnablePassthrough()
+# print(passthrough.invoke({'name':'nitish'}))
+
 prompt1 = PromptTemplate(
     template='Write a joke about {topic}',
     input_variables=['topic']
@@ -28,5 +31,6 @@ parallel_chain = RunnableParallel({
 })
 
 final_chain = RunnableSequence(joke_gen_chain, parallel_chain)
+
 
 print(final_chain.invoke({'topic':'cricket'}))
