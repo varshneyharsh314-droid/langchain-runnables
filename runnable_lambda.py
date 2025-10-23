@@ -1,3 +1,12 @@
+
+# from langchain.schema.runnable import RunnableLambda
+
+# def word_count(text):
+#     return len(text.split())
+
+# runnable_word_counter = RunnableLambda(word_count)
+# print(runnable_word_counter.invoke('Hi there how are you?'))
+
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -32,3 +41,4 @@ result = final_chain.invoke({'topic':'AI'})
 final_result = """{} \n word count - {}""".format(result['joke'], result['word_count'])
 
 print(final_result)
+
